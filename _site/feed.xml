@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Maya Anand</title>
+<generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000" />
+<updated>2016-05-20T16:27:55-04:00</updated>
+<id>http://localhost:4000/</id>
+<author>
+  <name>Maya Anand</name>
+  <uri>http://localhost:4000/</uri>
+  <email>mva2112@columbia.edu</email>
+</author>
+
+
+<entry>
+  <title type="html"><![CDATA[ssh, scp, wget]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/notes/ssh-scp-wget/" />
+  <id>http://localhost:4000/notes/ssh-scp-wget</id>
+  <published>2016-05-20T14:26:27-04:00</published>
+  <updated>2016-05-20T14:26:27-04:00</updated>
+  <author>
+    <name>Maya Anand</name>
+    <uri>http://localhost:4000</uri>
+    <email>mva2112@columbia.edu</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;The first UNIX commands I learned were ssh, scp and wget.  ssh is used to connect to a server, while scp and wget are used for downloading and copying files.&lt;/p&gt;
+
+&lt;h1 id=&quot;ssh&quot;&gt;ssh&lt;/h1&gt;
+
+&lt;h2 id=&quot;connecting-and-disconnecting-to-the-server&quot;&gt;Connecting and Disconnecting to the Server&lt;/h2&gt;
+
+&lt;p&gt;To connect to a server, type: &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh user@server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;where user is your username and server is the name of the server&lt;/p&gt;
+
+&lt;p&gt;You will be prompted to enter a password. The cursor does not move/show what you are typing as you enter the password.&lt;/p&gt;
+
+&lt;p&gt;To disconnect from the server, you can type &lt;code class=&quot;highlighter-rouge&quot;&gt;exit&lt;/code&gt; or hit &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl-D&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;networking&quot;&gt;Networking&lt;/h2&gt;
+
+&lt;p&gt;An IP address is made up of 4 bytes (32 bits).
+For example: 127.0.0.1
+These addresses can also be associated with names like teamerlich.org.&lt;/p&gt;
+
+&lt;p&gt;When you use ssh, the server can be specified either by a name or an IP address.&lt;/p&gt;
+
+&lt;h2 id=&quot;privatepublic-key&quot;&gt;Private/Public Key&lt;/h2&gt;
+
+&lt;p&gt;Private/Public keys can be used for ssh passwordless login.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-keygen&lt;/code&gt; generates two files: id-rsa (private) and id-rsa.pub (public). The private key is kept on the computer while the public key can be shared with others for secure login without a password.&lt;/p&gt;
+
+&lt;h1 id=&quot;scp-and-wget&quot;&gt;scp and wget&lt;/h1&gt;
+
+&lt;h2 id=&quot;copy-a-local-file-to-server&quot;&gt;Copy a local file to server&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/&quot;&gt;1KGP VCF Download&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Download the chr 22 vcf file locally.&lt;/p&gt;
+
+&lt;p&gt;To copy the file to the server (run from downloads folder):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz maya@maya.teamerlich.org:~
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;download-a-file-directly-to-server&quot;&gt;Download a file directly to server&lt;/h2&gt;
+&lt;p&gt;ssh to server:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh maya@maya.teamerlich.org
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;download file:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;download-file-from-server-to-local-computer&quot;&gt;Download file from server to local computer&lt;/h2&gt;
+&lt;p&gt;To copy from the server (run from where you want the file saved to):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp maya@maya.teamerlich.org:~/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz chr21.vcf.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;File is saved in downloads folder with filename chr21.vcf.gz&lt;/p&gt;
+
+&lt;h2 id=&quot;copy-a-directory-to-server&quot;&gt;Copy a directory to server&lt;/h2&gt;
+&lt;p&gt;Created a new directory on mac called test1. test1 contains hello.txt and world.txt.&lt;/p&gt;
+
+&lt;p&gt;Copy to server:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp -r test1 maya@maya.teamerlich.org:~
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;-r&lt;/code&gt; option copies directories along with everything in them.&lt;/p&gt;
+
+&lt;h2 id=&quot;use-wget-to-download-continuously&quot;&gt;Use wget to download continuously&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;-c&lt;/code&gt; option can be used to continue downloading a large file after the connection/download has been interrupted (as opposed to starting the download again).&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/notes/ssh-scp-wget/&quot;&gt;ssh, scp, wget&lt;/a&gt; was originally published by Maya Anand at &lt;a href=&quot;http://localhost:4000&quot;&gt;Maya Anand&lt;/a&gt; on May 20, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+</feed>

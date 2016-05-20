@@ -1,0 +1,270 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>ssh, scp, wget &#8211; Maya Anand</title>
+<meta name="description" content="using ssh to connect to a server and scp wget for copying files">
+<meta name="keywords" content="">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="ssh, scp, wget">
+<meta name="twitter:description" content="using ssh to connect to a server and scp wget for copying files">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssh, scp, wget">
+<meta property="og:description" content="using ssh to connect to a server and scp wget for copying files">
+<meta property="og:url" content="http://localhost:4000/notes/ssh-scp-wget/">
+<meta property="og:site_name" content="Maya Anand">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/notes/ssh-scp-wget/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Maya Anand Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="http://localhost:4000/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="http://localhost:4000/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      
+		    
+		    <li><a href="http://localhost:4000/index/" >Home</a></li>
+		  
+		    
+		    <li><a href="http://localhost:4000/about/" >About Me</a></li>
+		  
+		    
+		    <li><a href="http://localhost:4000/mentor/" >My Mentor</a></li>
+		  
+		    
+		    <li><a href="http://localhost:4000/project/" >My Project</a></li>
+		  
+		    
+		    <li><a href="http://localhost:4000/weekly-updates/" >Weekly Updates</a></li>
+		  
+		    
+		    <li><a href="http://localhost:4000/notes/" >Notes</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+  		<a href="http://localhost:4000/" class="site-logo" rel="home" title="Maya Anand"><img src="http://localhost:4000/images/site-logo.png" width="200" height="200" alt="Maya Anand logo" class="animated fadeInDown"></a>
+      
+      <h1 class="site-title animated fadeIn"><a href="http://localhost:4000/">Maya Anand</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">My DREU Summer Experience</h2>
+	</div>
+</header><!-- /.masthead -->
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <ul class="entry-tags">
+          
+        </ul>
+        
+          <h1 class="entry-title">ssh, scp, wget</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="Maya Anand bio photo"></a>
+        
+        <span class="author vcard">By <span class="fn">Maya Anand</span></span>
+        <span class="entry-date date published"><time datetime="2016-05-20T14:26:27-04:00"><i class="fa fa-calendar-o"></i> May 20, 2016</time></span>
+        
+        
+        
+        
+      </footer>
+      <div class="entry-content">
+        <p>The first UNIX commands I learned were ssh, scp and wget.  ssh is used to connect to a server, while scp and wget are used for downloading and copying files.</p>
+
+<h1 id="ssh">ssh</h1>
+
+<h2 id="connecting-and-disconnecting-to-the-server">Connecting and Disconnecting to the Server</h2>
+
+<p>To connect to a server, type: <code class="highlighter-rouge">ssh user@server</code></p>
+
+<p>where user is your username and server is the name of the server</p>
+
+<p>You will be prompted to enter a password. The cursor does not move/show what you are typing as you enter the password.</p>
+
+<p>To disconnect from the server, you can type <code class="highlighter-rouge">exit</code> or hit <code class="highlighter-rouge">ctrl-D</code>.</p>
+
+<h2 id="networking">Networking</h2>
+
+<p>An IP address is made up of 4 bytes (32 bits).
+For example: 127.0.0.1
+These addresses can also be associated with names like teamerlich.org.</p>
+
+<p>When you use ssh, the server can be specified either by a name or an IP address.</p>
+
+<h2 id="privatepublic-key">Private/Public Key</h2>
+
+<p>Private/Public keys can be used for ssh passwordless login.</p>
+
+<p><code class="highlighter-rouge">ssh-keygen</code> generates two files: id-rsa (private) and id-rsa.pub (public). The private key is kept on the computer while the public key can be shared with others for secure login without a password.</p>
+
+<h1 id="scp-and-wget">scp and wget</h1>
+
+<h2 id="copy-a-local-file-to-server">Copy a local file to server</h2>
+<p><a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/">1KGP VCF Download</a></p>
+
+<p>Download the chr 22 vcf file locally.</p>
+
+<p>To copy the file to the server (run from downloads folder):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>scp ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz maya@maya.teamerlich.org:~
+</code></pre>
+</div>
+
+<h2 id="download-a-file-directly-to-server">Download a file directly to server</h2>
+<p>ssh to server:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ssh maya@maya.teamerlich.org
+</code></pre>
+</div>
+
+<p>download file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
+</code></pre>
+</div>
+
+<h2 id="download-file-from-server-to-local-computer">Download file from server to local computer</h2>
+<p>To copy from the server (run from where you want the file saved to):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>scp maya@maya.teamerlich.org:~/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz chr21.vcf.gz
+</code></pre>
+</div>
+
+<p>File is saved in downloads folder with filename chr21.vcf.gz</p>
+
+<h2 id="copy-a-directory-to-server">Copy a directory to server</h2>
+<p>Created a new directory on mac called test1. test1 contains hello.txt and world.txt.</p>
+
+<p>Copy to server:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>scp -r test1 maya@maya.teamerlich.org:~
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">-r</code> option copies directories along with everything in them.</p>
+
+<h2 id="use-wget-to-download-continuously">Use wget to download continuously</h2>
+
+<p>The <code class="highlighter-rouge">-c</code> option can be used to continue downloading a large file after the connection/download has been interrupted (as opposed to starting the download again).</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2016 Maya Anand. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	<a href="https://linkedin.com/in/maya-anand-88a55aba" title="Maya Anand on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+	
+	
+	
+	<a href="https://github.com/mayavanand" title="Maya Anand on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'http://localhost:4000';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+
+
+
+</body>
+</html>

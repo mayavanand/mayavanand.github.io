@@ -1,11 +1,11 @@
 # Site wide configuration
 
-title: Site Title
+title: Maya Anand
 locale: en_US
-description: Describe your website here.
+description: My DREU Summer Experience
 logo: site-logo.png
 search: true
-url: mayavanand.github.io
+url: http://localhost:4000
 
 # Jekyll configuration
 
@@ -48,24 +48,10 @@ titlecase: true
 
 # Site owner
 owner:
-  name: Your Name
+  name: Maya Anand
   avatar: bio-photo.jpg
-  email: you@email.com
+  email: mva2112@columbia.edu
   disqus-shortname:
-  twitter: #username
-  facebook: #username
-  github: #username
-  stackexchange: #http://stackoverflow.com/users/123456/username
-  linkedin: #username
-  instagram: #username
-  flickr: #username
-  tumblr: #username
-  pinterest: #username
-  weibo: #userid
-  google:
-    plus: #username
-    analytics:
-    verify:
-    ad-client:
-    ad-slot:
-  bing-verify:
+  github: mayavanand
+  linkedin: maya-anand-88a55aba
+  

@@ -1,16 +1,19 @@
 # Site navigation links
 
-- title: About
+- title: Home
+  url: /index/
+
+- title: About Me
   url: /about/
 
-- title: Articles
-  url: /articles/
+- title: My Mentor
+  url: /mentor/
 
-- title: Blog
-  url: /blog/
+- title: My Project
+  url: /project/
 
-- title: Theme Setup
-  url: /theme-setup/
+- title: Weekly Updates
+  url: /weekly-updates/
 
-- title: Search
-  url: /search/
+- title: Notes
+  url: /notes/
