@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Sample Articles
-excerpt: "An archive of articles sorted by date."
+title: My Mentor
+excerpt: About my mentor
 search_omit: true
 ---
 
