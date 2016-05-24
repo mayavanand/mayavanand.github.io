@@ -2,7 +2,7 @@
 layout: post
 title: File Formats
 modified:
-categories: Notes
+categories: notes
 excerpt: Notes about various file formats useful for this project
 tags: []
 image:
