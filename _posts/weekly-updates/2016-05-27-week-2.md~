@@ -1,0 +1,12 @@
+---
+layout: post
+title: Week 2
+modified:
+categories: weekly-updates
+excerpt:
+tags: []
+image:
+  feature:
+date: 2016-05-27:19:30-04:00
+---
+This week, we continued the unix tutorials, learning about basic text processing using cut, sort and uniq. Later in the week, we discussed awk and regular expressions. We also went over some basic shell scripting.  I learned about the difference reference builds for the genom.e and the terminology used to refer to them. I also learned about different versions of dbSNP  and how to download them through the UCSC Genome browser. It can be a little confusing to keep everything straight because different research consortiums in the US and Europe have different names for the same builds. For example, genome reference build hg18 is the same as build 36 and hg19 is the same build 37. For each build there are different versions of dbSNP up to dbSNP version 146.  I worked on writing a script that converted VCF file to a 23&Me style format. However, one of the frustrations I ran into this week was the realization that my script which used bcftools ran very slowly on a VCF from the 1000 Genomes project.  My challenge for the next week would be to find ways of making my script run more quickly in a reasonable amount of time.
