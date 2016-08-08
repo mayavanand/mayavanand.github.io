@@ -1,0 +1,14 @@
+---
+layout: post
+title: Week 8
+modified:
+categories: weekly-updates
+excerpt: IBD and Ancestry
+tags: []
+image:
+  feature:
+date: 2016-07-08T17:19:30-04:00
+---
+This week, I continued to run scripts to determine the ancestry of each sample. I learned about SQS (queueing) in Amazon to help scale up the running of the ancestry scripts.
+
+I also ran Germline and ERSA, two IBD algorithms on the PED files generated from the 1KGP samples. The output of ERSA and Germline would indicate whether any of the samples were close relatives to each other. Results did not indicate any close relationships between any of the 1KGP samples, which seemed puzzling because there are several frequently studied trios in the 1KGP samples. Upon lots of documentation reading, it appeared that related samples to the 2504 samples in the phase 3 data set were removed and released as a separate file to prevent related samples from impacting the allele frequencies reported. At the end of this week, I finally found that file, as well as another file that contained roughly 600 additional samples, some of which were related to the original 2504.
