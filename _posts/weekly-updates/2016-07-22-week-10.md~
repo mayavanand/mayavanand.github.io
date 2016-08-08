@@ -9,6 +9,6 @@ image:
   feature:
 date: 2016-07-22T17:19:30-04:00
 ---
-This week I continued work on generating ped files and also worked on determining the ancestry of each sample.  The scripts I generated took a very long time to run, so we needed to scale horizontally with many EC2 instances reading and writing data to S3. We let the scripts run over the long weekend for the 4th of July and I was really excited when I came back to see that most of the data was done being generated.
+This week I did a lot of research on various tools used in the field for SNP calling (going from .bam alignment files to a vcf with SNPs called).  I worked on some example datasets to understand how the tools work, what are the differences between tools and how long the entire process takes.  This information could be helpful for some other projects in the lab and was a good learning experience for me to understand how the vcf files I was working with were obtained from genome sequences.
 
-
+ I also started work on processing another approximately 600 samples that were not included in the phase 3 1KGP file, but were sequenced and contain some related individuals to the original samples. However, these samples came in a vcf that was quite different from the original samples (not annotated, not phased) so I started working on phasing and annotating the samples so that they could be put in the form needed for my pipeline.
