@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Week 12
+title: Week 7
 modified:
 categories: weekly-updates
-excerpt: Last week :(
+excerpt: IBD and Ancestry
 tags: []
 image:
   feature:
-date: 2016-08-12T17:19:30-04:00
+date: 2016-07-01T17:19:30-04:00
 ---
 This week I continued work on generating ped files and also worked on determining the ancestry of each sample.  The scripts I generated took a very long time to run, so we needed to scale horizontally with many EC2 instances reading and writing data to S3. We let the scripts run over the long weekend for the 4th of July and I was really excited when I came back to see that most of the data was done being generated.
 
