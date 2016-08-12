@@ -5,8 +5,8 @@ excerpt: "About my project for this summer"
 modified: 2016-06-20
 image:
   feature: 1000g_map.jpg
-  credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
+  credit: 1000 Genomes Project
+  creditlink: http://www.1000genomes.org/
 ---
 
 ## Overview
