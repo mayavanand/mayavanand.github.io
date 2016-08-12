@@ -4,7 +4,7 @@ title: My Project
 excerpt: "About my project for this summer"
 modified: 2016-06-20
 image:
-  feature: so-simple-sample-image-6.jpg
+  feature: 1000g_map.png
   credit: WeGraphics
   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
 ---
